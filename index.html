@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinHigh Support System - Project Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .tech-badge {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Hero Section -->
+    <div class="gradient-bg text-white">
+        <div class="max-w-6xl mx-auto px-6 py-16">
+            <div class="flex items-center justify-between mb-8">
+                <div class="bg-white text-green-600 rounded-lg px-6 py-3 font-bold text-2xl">PinHigh</div>
+                <a href="/cdn-cgi/l/email-protection#05666a6b7164667145607d64687569602b666a68" class="px-6 py-2 bg-white text-green-600 rounded-lg font-semibold hover:bg-gray-100 transition">
+                    Contact Me
+                </a>
+            </div>
+            
+            <h1 class="text-5xl font-bold mb-4">AI-Powered Helpdesk System</h1>
+            <p class="text-xl text-green-50 mb-8 max-w-3xl">
+                A comprehensive ticket management platform designed for post-merger integration, 
+                featuring intelligent classification, department-based access control, and real-time analytics.
+            </p>
+            
+            <div class="flex flex-wrap gap-3 mb-8">
+                <span class="tech-badge px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">AI Classification</span>
+                <span class="tech-badge px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">Real-time Analytics</span>
+                <span class="tech-badge px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">Role-Based Access</span>
+                <span class="tech-badge px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">Responsive Design</span>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                    <div class="text-3xl font-bold mb-2">3</div>
+                    <div class="text-green-50">Integrated Applications</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                    <div class="text-3xl font-bold mb-2">100%</div>
+                    <div class="text-green-50">AI-Powered Classification</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                    <div class="text-3xl font-bold mb-2">6</div>
+                    <div class="text-green-50">Department Integrations</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Overview -->
+    <div class="max-w-6xl mx-auto px-6 py-16">
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Project Overview</h2>
+            <p class="text-lg text-gray-600 mb-6">
+                Built for a post-merger scenario where three companies (GreenTech, Summit Corp, and Apex Solutions) 
+                consolidated into PinHigh, this system addresses the critical challenge of managing employee support 
+                requests across legacy systems and policies.
+            </p>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+                <p class="text-blue-900">
+                    <span class="font-semibold">Business Context:</span> During organizational mergers, helpdesk teams 
+                    face overwhelming ticket volumes related to policy changes, system migrations, and benefit transitions. 
+                    This solution automates classification, routing, and provides department-specific access control.
+                </p>
+            </div>
+        </div>
+
+        <!-- Applications Grid -->
+        <h2 class="text-3xl font-bold text-gray-800 mb-8">System Components</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <!-- Ticket Submission Portal -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                <div class="bg-gradient-to-r from-green-500 to-green-600 px-6 py-4">
+                    <h3 class="text-xl font-bold text-white">1. Ticket Submission Portal</h3>
+                    <p class="text-green-50 text-sm">Employee-Facing Interface</p>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-700 mb-4">
+                        User-friendly portal where employees submit support requests with automatic AI classification and routing.
+                    </p>
+                    
+                    <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm text-gray-700">Real-time AI classification (category, priority, department)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm text-gray-700">Visual urgency selector with business context</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm text-gray-700">Legacy company tracking for merger context</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm text-gray-700">Instant confirmation with routing details</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="ticket-submission-portal.html"
+                       class="block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+                        Launch Application →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Ticket Management Console -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                <div class="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-4">
+                    <h3 class="text-xl font-bold text-white">2. Ticket Management Console</h3>
+                    <p class="text-blue-50 text-sm">Support Staff Interface</p>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-700 mb-4">
+                        Comprehensive ticket handling interface with department-based access control and AI-assisted responses.
+                    </p>
+                    
+                    <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm text-gray-700">Department-based role access (RBAC)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm text-gray-700">AI-assisted response drafting</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm text-gray-700">Internal notes vs. customer-facing responses</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm text-gray-700">Priority escalation and reassignment</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="ticket-management.html"
+                       class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+                        Launch Application →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Analytics Dashboard -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                <div class="bg-gradient-to-r from-purple-500 to-purple-600 px-6 py-4">
+                    <h3 class="text-xl font-bold text-white">3. Analytics Dashboard</h3>
+                    <p class="text-purple-50 text-sm">Management Intelligence</p>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-700 mb-4">
+                        Real-time MI reporting with interactive charts, filters, and export capabilities for data-driven decisions.
+                    </p>
+                    
+                    <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-purple-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm text-gray-700">Real-time KPI cards (volume, response time, urgency)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-purple-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm text-gray-700">Interactive Chart.js visualizations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-purple-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm text-gray-700">Multi-dimensional filtering and drill-down</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-purple-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm text-gray-700">Export reports to JSON for further analysis</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="support-dashboard.html"
+                       class="block w-full text-center bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+                        Launch Application →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sample Dataset -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                <div class="bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-4">
+                    <h3 class="text-xl font-bold text-white">4. Sample Dataset & Analysis</h3>
+                    <p class="text-orange-50 text-sm">Post-Merger Scenarios</p>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-700 mb-4">
+                        Comprehensive dataset of 100 realistic post-merger helpdesk tickets with detailed analysis report.
+                    </p>
+                    
+                    <h4 class="font-semibold text-gray-800 mb-2">Includes:</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-orange-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm text-gray-700">100 tickets spanning 3 legacy companies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-orange-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm text-gray-700">Benefits, PTO, system access, policy questions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-orange-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm text-gray-700">Statistical analysis and insights report</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-orange-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm text-gray-700">CSV format for easy import/analysis</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="grid grid-cols-2 gap-3">
+                        <a href="pinhigh-tickets-dataset.csv" download 
+                           class="text-center bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-4 rounded-lg transition text-sm">
+                            Download CSV
+                        </a>
+                        <a href="ticket-analysis-report.txt" download 
+                           class="text-center bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-4 rounded-lg transition text-sm">
+                            View Report
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Stack -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-16">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Technical Stack</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
+                        </svg>
+                    </div>
+                    <div class="font-semibold text-gray-800">Claude AI</div>
+                    <div class="text-xs text-gray-600">Sonnet 4</div>
+                </div>
+                <div class="text-center">
+                    <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div class="font-semibold text-gray-800">HTML/CSS/JS</div>
+                    <div class="text-xs text-gray-600">Frontend</div>
+                </div>
+                <div class="text-center">
+                    <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
+                        </svg>
+                    </div>
+                    <div class="font-semibold text-gray-800">Chart.js</div>
+                    <div class="text-xs text-gray-600">Visualization</div>
+                </div>
+                <div class="text-center">
+                    <div class="bg-indigo-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-8 h-8 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div class="font-semibold text-gray-800">Tailwind CSS</div>
+                    <div class="text-xs text-gray-600">Styling</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Use Cases -->
+        <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 mb-16">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Business Impact & Use Cases</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg p-6">
+                    <div class="text-3xl mb-3">🎯</div>
+                    <h3 class="font-bold text-gray-800 mb-2">Post-Merger Integration</h3>
+                    <p class="text-sm text-gray-600">
+                        Handles complex scenarios where employees from different legacy companies have questions about 
+                        new unified policies, benefits, and systems.
+                    </p>
+                </div>
+                <div class="bg-white rounded-lg p-6">
+                    <div class="text-3xl mb-3">⚡</div>
+                    <h3 class="font-bold text-gray-800 mb-2">Automated Triage</h3>
+                    <p class="text-sm text-gray-600">
+                        AI classification reduces manual sorting time by 80%, automatically routing tickets to the 
+                        correct department based on content analysis.
+                    </p>
+                </div>
+                <div class="bg-white rounded-lg p-6">
+                    <div class="text-3xl mb-3">🔒</div>
+                    <h3 class="font-bold text-gray-800 mb-2">Data Segmentation</h3>
+                    <p class="text-sm text-gray-600">
+                        Department-based access control ensures IT staff only see IT tickets, maintaining data privacy 
+                        and reducing cognitive load.
+                    </p>
+                </div>
+                <div class="bg-white rounded-lg p-6">
+                    <div class="text-3xl mb-3">📊</div>
+                    <h3 class="font-bold text-gray-800 mb-2">Data-Driven Decisions</h3>
+                    <p class="text-sm text-gray-600">
+                        Real-time analytics identify merger integration pain points, allowing leadership to proactively 
+                        address systemic issues.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="bg-gradient-to-r from-green-600 to-green-700 rounded-xl p-12 text-center text-white">
+            <h2 class="text-3xl font-bold mb-4">Interested in My Work?</h2>
+            <p class="text-green-50 mb-8 max-w-2xl mx-auto">
+                I'm passionate about building intelligent systems that solve real business problems. 
+                Let's discuss how I can contribute to your team.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/cdn-cgi/l/email-protection#7900160c0b571c14181015391c01181409151c571a1614" class="px-8 py-3 bg-white text-green-600 rounded-lg font-semibold hover:bg-gray-100 transition">
+                    Email Me
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank"
+                   class="px-8 py-3 bg-green-800 text-white rounded-lg font-semibold hover:bg-green-900 transition">
+                    LinkedIn Profile
+                </a>
+                <a href="https://github.com/yourprofile" target="_blank"
+                   class="px-8 py-3 bg-green-800 text-white rounded-lg font-semibold hover:bg-green-900 transition">
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="bg-gray-800 text-gray-400 py-8 mt-16">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="mb-2">© 2024 PinHigh Support System Portfolio</p>
+            <p class="text-sm">Built with Claude AI • Designed for post-merger integration scenarios</p>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Animate badges on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+  
