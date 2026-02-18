@@ -1,0 +1,101 @@
+ticket_id,date_submitted,subject,description,employee_name,legacy_company
+T001,2024-01-15,New health insurance enrollment,I'm from the former GreenTech company and I'm confused about the new health insurance options. My old plan had dental included but I don't see that in the new PinHigh benefits portal. Can someone explain what's covered now?,Sarah Johnson,GreenTech
+T002,2024-01-16,PTO policy clarification needed,"At my previous company (Summit Corp), we had unlimited PTO. Now I'm seeing accrual rates in the system. How many days do I actually get per year under the new policy?",Michael Chen,Summit Corp
+T003,2024-01-16,Can't access new payroll system,I'm trying to log into the new Workday system but my credentials from the old ADP system don't work. I need to update my direct deposit information before next pay period.,Jessica Martinez,Apex Solutions
+T004,2024-01-17,401k rollover assistance,I had a 401k with my previous company Summit Corp with a 6% match. What's PinHigh's match policy and how do I roll over my existing account?,David Park,Summit Corp
+T005,2024-01-17,Office hoteling system broken,The new office booking system isn't working. I'm from the Apex Seattle office and we never had assigned desks. Now I can't figure out how to reserve a workspace for tomorrow.,Amanda White,Apex Solutions
+T006,2024-01-18,Laptop replacement request - urgent,My GreenTech laptop is 4 years old and barely functions. What's the new policy for equipment replacement? Do I need manager approval or can I request directly through IT?,Robert Taylor,GreenTech
+T007,2024-01-18,New expense policy questions,"I have a client dinner tonight and I'm not sure what the expense limits are anymore. At Summit we could expense up to $150 per person, what's the new policy?",Linda Anderson,Summit Corp
+T008,2024-01-19,Performance review timeline,When are performance reviews happening? At GreenTech we did them in March but I heard PinHigh does them quarterly. I need to know so I can prepare.,James Wilson,GreenTech
+T009,2024-01-19,VPN not connecting,I can't connect to the VPN using my old Summit credentials. I work from home 3 days a week and need access to the shared drives urgently.,Maria Garcia,Summit Corp
+T010,2024-01-22,Parental leave policy information,I'm expecting a baby in June. What's PinHigh's parental leave policy? At Apex we had 12 weeks - is that still the case?,Christopher Lee,Apex Solutions
+T011,2024-01-22,New email signature format,What's the proper email signature format now? Should I still use my old Apex branding or is there a new PinHigh template?,Nicole Brown,Apex Solutions
+T012,2024-01-23,Stock options conversion,"I had stock options from Summit Corp that were vesting. How are these being converted in the merger? I can't find any documentation on this.",Kevin Martinez,Summit Corp
+T013,2024-01-23,Remote work policy clarification,GreenTech allowed fully remote work. What's PinHigh's policy? Do I need to come into the office now?,Emily Davis,GreenTech
+T014,2024-01-24,Access to finance shared drive,I need access to the finance drive for Q4 reporting but I'm getting access denied errors. At Summit I had automatic access as a finance team member.,Thomas Anderson,Summit Corp
+T015,2024-01-24,New org chart - where do I report?,My manager from GreenTech left during the merger. Who do I report to now? The org chart link in the email doesn't work.,Ashley Wilson,GreenTech
+T016,2024-01-25,Professional development budget,Does PinHigh offer professional development stipends? At Apex I had $2000 annually for courses and conferences.,Daniel Kim,Apex Solutions
+T017,2024-01-25,Password reset - locked out,I've been locked out of all systems after trying to log in with my old GreenTech password too many times. Need urgent reset.,Jennifer Taylor,GreenTech
+T018,2024-01-26,Severance package question,Several colleagues from Summit were let go. What's the severance policy? I'm worried about job security.,Brian Johnson,Summit Corp
+T019,2024-01-26,New badge access not working,My new PinHigh badge doesn't open the doors on the 5th floor where my team sits. Still using my Apex badge.,Michelle Lee,Apex Solutions
+T020,2024-01-29,Relocation assistance policy,I'm being asked to relocate from the Summit Chicago office to PinHigh HQ in Denver. What relocation benefits are available?,Ryan Martinez,Summit Corp
+T021,2024-01-29,Tuition reimbursement eligibility,I'm enrolled in an MBA program. Does PinHigh offer tuition reimbursement like GreenTech did?,Laura White,GreenTech
+T022,2024-01-30,Bonus structure changes,What happened to our quarterly bonuses? At Summit we got performance bonuses every quarter. Is this still happening?,Steven Brown,Summit Corp
+T023,2024-01-30,New CRM system training needed,We've switched from Salesforce to HubSpot. When is training being offered? I can't figure out how to log my sales calls.,Patricia Garcia,Apex Solutions
+T024,2024-01-31,Life insurance coverage amounts,My life insurance coverage seems lower than what I had at Apex. Can I increase it and what are the new rates?,Carlos Rodriguez,Apex Solutions
+T025,2024-01-31,Sick leave vs PTO confusion,"At GreenTech, sick leave was separate from PTO. Now it seems like it's all combined. Does this mean my sick days count against vacation?",Rachel Kim,GreenTech
+T026,2024-02-01,Cell phone stipend missing,I used to get a $100/month cell phone stipend at Summit. I don't see this in my last paycheck. Is this benefit continuing?,Mark Thompson,Summit Corp
+T027,2024-02-01,New time tracking system issues,The new time tracking system keeps logging me out. This is critical as I bill clients hourly and need accurate records.,Angela Martinez,GreenTech
+T028,2024-02-02,Gym membership reimbursement,Apex reimbursed up to $75/month for gym memberships. Does PinHigh have a wellness program?,Justin Lee,Apex Solutions
+T029,2024-02-02,Company car policy for sales,I'm in sales and had a company car at Summit. What's PinHigh's policy on this? Do I need to return my current vehicle?,Samantha Davis,Summit Corp
+T030,2024-02-05,Mental health benefits coverage,Does the new insurance cover therapy sessions? At GreenTech I had 20 sessions covered annually.,William Johnson,GreenTech
+T031,2024-02-05,Commission structure changes,"My commission structure seems different from what I had at Apex. The rates are lower. Was this communicated? I need clarification ASAP.",Elizabeth Brown,Apex Solutions
+T032,2024-02-06,Office closure calendar,Which holidays is the office closed? Each legacy company had different holiday schedules. What's the unified calendar?,Christopher White,Summit Corp
+T033,2024-02-06,New manager introduction request,I've been assigned a new manager from the former Summit team but haven't been introduced. Can someone facilitate a meeting?,Victoria Garcia,GreenTech
+T034,2024-02-07,Retirement plan contribution limits,I was maxing out my 401k at Apex. What are the contribution limits under the new plan?,Andrew Martinez,Apex Solutions
+T035,2024-02-07,Software licenses - Adobe Creative,I need Adobe Creative Cloud for my role but my old GreenTech license was deactivated. How do I get a new license?,Melissa Anderson,GreenTech
+T036,2024-02-08,Severance calculation method,If there are future layoffs what's the severance calculation? At Summit it was 2 weeks per year of service.,Joshua Kim,Summit Corp
+T037,2024-02-08,New corporate credit card,When will we receive new PinHigh corporate cards? My old Apex card expires next month.,Rebecca Taylor,Apex Solutions
+T038,2024-02-09,Referral bonus program,Does PinHigh have an employee referral bonus? GreenTech paid $3000 per successful hire.,Nicholas Wilson,GreenTech
+T039,2024-02-09,Parking pass for new office,I've been moved to the Denver HQ. How do I get a parking pass? At the Summit office parking was included.,Amanda Lee,Summit Corp
+T040,2024-02-12,Stock purchase plan enrollment,Is there an employee stock purchase plan? Summit had one with 15% discount.,Jonathan Brown,Summit Corp
+T041,2024-02-12,Lactation room access,I'm returning from maternity leave. Where are the lactation rooms at the new PinHigh office? Apex had dedicated rooms.,Sarah Martinez,Apex Solutions
+T042,2024-02-13,New benefits enrollment deadline,I missed the benefits enrollment email. What's the deadline and can I get an extension?,Michael Thompson,GreenTech
+T043,2024-02-13,Dependent care FSA,Can I still contribute to a dependent care FSA? I don't see it listed in the new benefits portal.,Jennifer Kim,Summit Corp
+T044,2024-02-14,Company laptop return process,I have my old GreenTech laptop and a new PinHigh one. Where do I return the old equipment?,David Garcia,GreenTech
+T045,2024-02-14,Manager approval workflow changes,The approval process for expenses seems different. Do I still route through my direct manager or is there a new system?,Lisa Anderson,Apex Solutions
+T046,2024-02-15,Bereavement leave policy,What's the bereavement leave policy? My grandfather passed away and at Summit we had 5 days.,Robert Wilson,Summit Corp
+T047,2024-02-15,New office seating assignments,Where is my assigned desk? The floor plan shows my team in a different area than where GreenTech sat.,Patricia Lee,GreenTech
+T048,2024-02-16,Annual salary review timing,When do salary reviews happen? At Apex it was in January but we're already mid-February.,Christopher Martinez,Apex Solutions
+T049,2024-02-16,Overtime policy for hourly employees,I'm an hourly employee from Summit. What's the overtime approval process? We used to be able to work OT freely.,Jessica Brown,Summit Corp
+T050,2024-02-19,New project management tool,We've switched to Monday.com from Asana. Is there training available? I have active projects I need to migrate.,Matthew Kim,GreenTech
+T051,2024-02-19,HSA contribution limits,I want to maximize my HSA contributions. What are the annual limits under the new plan?,Lauren Taylor,Apex Solutions
+T052,2024-02-20,Company laptop specs inadequate,The standard PinHigh laptop is slower than what I had at Summit. I'm a software developer and need more RAM.,Kevin Johnson,Summit Corp
+T053,2024-02-20,Dress code policy,What's the dress code? GreenTech was very casual but I've noticed people dressing more formally.,Michelle Garcia,GreenTech
+T054,2024-02-21,Confidential HR matter,I need to speak with HR confidentially about a workplace issue. Who do I contact? My old Apex HR rep is gone.,Daniel Martinez,Apex Solutions
+T055,2024-02-21,New travel booking system,How do I book business travel? At Summit we used Concur but I can't find the new system.,Amanda Anderson,Summit Corp
+T056,2024-02-22,Vision insurance coverage,Is vision insurance included or separate? At GreenTech it was bundled with medical.,Brandon Wilson,GreenTech
+T057,2024-02-22,Patent/IP policy for engineers,I developed some code at Apex. What's PinHigh's IP policy? Do I need to disclose this?,Ashley Kim,Apex Solutions
+T058,2024-02-23,Long-term disability coverage,What's the LTD coverage amount? I want to purchase supplemental coverage if needed.,Thomas Lee,Summit Corp
+T059,2024-02-23,Company social events budget,At GreenTech our team had a quarterly budget for team building. Does this still exist?,Rachel Brown,GreenTech
+T060,2024-02-26,New performance management system,What's the new performance review system? At Summit we used a 5-point scale but I'm seeing something different.,Eric Martinez,Summit Corp
+T061,2024-02-26,Sabbatical leave policy,Does PinHigh offer sabbaticals? Apex allowed them after 7 years of service.,Nicole Taylor,Apex Solutions
+T062,2024-02-27,Equipment stipend for remote workers,I work remotely and bought my own monitor at GreenTech. Does PinHigh reimburse home office equipment?,William Garcia,GreenTech
+T063,2024-02-27,New hire referral - status check,I referred someone 3 weeks ago. How do I check the status? At Summit we had a tracking portal.,Samantha Kim,Summit Corp
+T064,2024-02-28,Customer data access - GDPR,I need access to customer data for my role but I'm getting compliance warnings. What's the new GDPR training requirement?,Jason Anderson,Apex Solutions
+T065,2024-02-28,Floating holidays policy,How many floating holidays do we get? This wasn't clear in the new policy document.,Christina Wilson,GreenTech
+T066,2024-02-29,Commuter benefits program,Does PinHigh offer pre-tax commuter benefits? I took the train daily at Summit and this saved me significant money.,Ryan Lee,Summit Corp
+T067,2024-02-29,New security badge photo,My badge photo is from 2019. Can I get a new one taken? The photo quality is terrible.,Megan Martinez,Apex Solutions
+T068,2024-03-01,Shift differential pay,I work night shifts and at GreenTech received shift differential. Is this continuing?,Andrew Brown,GreenTech
+T069,2024-03-01,New company values and mission,Where can I find information about PinHigh's values and mission? I need this for a client presentation.,Jennifer Taylor,Summit Corp
+T070,2024-03-04,Maternity leave return - flexible schedule,I'm returning from maternity leave and want to request part-time hours temporarily. What's the policy?,Maria Kim,Apex Solutions
+T071,2024-03-04,Volunteer time off,Apex gave us 2 paid days annually for volunteering. Does PinHigh have a similar program?,Charles Garcia,Apex Solutions
+T072,2024-03-05,Legal name change process,I recently got married and need to change my name in all systems. What's the process?,Laura Anderson,GreenTech
+T073,2024-03-05,Company store access,Is there a company store for branded merchandise? Summit had one and I'd like to order items.,Steven Wilson,Summit Corp
+T074,2024-03-06,New whistleblower hotline,What's the anonymous reporting hotline number? I can't find it in the new employee handbook.,Patricia Martinez,Summit Corp
+T075,2024-03-06,Disability accommodation request,I need an ergonomic chair due to back problems. What's the accommodation request process?,Daniel Kim,GreenTech
+T076,2024-03-07,Pet insurance benefit,Did the pet insurance benefit survive the merger? This was an Apex perk I really valued.,Michelle Lee,Apex Solutions
+T077,2024-03-07,New supplier vendor setup,I need to add a new vendor to the system for marketing services. The old GreenTech process isn't working.,Robert Brown,GreenTech
+T078,2024-03-08,Background check for promotion,I'm being promoted to a role requiring additional background checks. How long does this take?,Amanda Taylor,Summit Corp
+T079,2024-03-08,EAP counseling services,Does the Employee Assistance Program include family counseling? I need support services for my teenager.,Christopher Garcia,Apex Solutions
+T080,2024-03-11,Profit sharing distribution,When is profit sharing distributed? At Summit it was in March but I haven't heard anything.,Jessica Anderson,Summit Corp
+T081,2024-03-11,New company intranet login,I can't access the new SharePoint intranet. Getting error messages about permissions.,Brandon Wilson,GreenTech
+T082,2024-03-12,Annual physical - wellness program,Does the wellness program still cover annual physicals? GreenTech reimbursed $150.,Sarah Kim,GreenTech
+T083,2024-03-12,Direct deposit change request,I need to split my paycheck between two accounts. The payroll portal won't let me add a second account.,Michael Martinez,Apex Solutions
+T084,2024-03-13,New compliance training deadline,I received 15 different compliance training assignments. What's the deadline? This seems excessive.,Jennifer Lee,Summit Corp
+T085,2024-03-13,Company car insurance proof,I need proof of insurance for my company vehicle for a client site visit tomorrow.,David Brown,Summit Corp
+T086,2024-03-14,Expense report rejected - need clarification,My expense report was rejected but I followed the old Apex policy. What changed?,Lisa Garcia,Apex Solutions
+T087,2024-03-14,New hire buddy program,At GreenTech we had a buddy system for new employees. Does PinHigh have something similar?,Thomas Anderson,GreenTech
+T088,2024-03-15,Stock vesting schedule confusion,My stock vesting schedule looks different in the new system. Can someone verify this is correct?,Rachel Wilson,Summit Corp
+T089,2024-03-15,New office coffee/snacks policy,Are snacks and coffee still provided? The break room at the merged office looks different.,Matthew Taylor,Apex Solutions
+T090,2024-03-18,Employment verification letter,I need an employment verification letter for a mortgage application. What's the request process?,Ashley Kim,GreenTech
+T091,2024-03-18,Sales territory reassignment,My sales territory was changed without notification. At Summit we had defined territories. What's happening?,Kevin Martinez,Summit Corp
+T092,2024-03-19,New cybersecurity protocols,I keep getting locked out for security violations I don't understand. The protocols seem much stricter than at Apex.,Michelle Brown,Apex Solutions
+T093,2024-03-19,Jury duty pay policy,I have jury duty next week. Am I paid during this time? What's the policy?,Daniel Garcia,GreenTech
+T094,2024-03-20,Team building budget approval,I want to organize a team outing. At Summit I had a $500 quarterly budget. What's the approval process now?,Lauren Anderson,Summit Corp
+T095,2024-03-20,New pricing guidelines access,I can't access the new pricing guidelines for client quotes. This is urgent as I have a proposal due today.,Christopher Lee,Apex Solutions
+T096,2024-03-21,Military leave policy,I'm in the reserves and have training next month. What's PinHigh's military leave policy?,Robert Wilson,GreenTech
+T097,2024-03-21,New manager 1-on-1 request,My new manager hasn't scheduled our 1-on-1 yet and it's been a month. How do I escalate this?,Amanda Martinez,Summit Corp
+T098,2024-03-22,Career development path,What's the career progression framework? At Apex we had clear IC and management tracks.,Brandon Kim,Apex Solutions
+T099,2024-03-22,Unpaid leave request process,I need to take 3 weeks unpaid leave for a family matter. What's the approval process and notice period?,Sarah Taylor,GreenTech
+T100,2024-03-25,New employee handbook location,Where can I find the complete employee handbook? The links in the welcome email are broken.,Michael Johnson,Summit Corp

@@ -1,0 +1,53 @@
+PINHIGH HELPDESK TICKET ANALYSIS
+Post-Merger Integration Period (Jan - Mar 2024)
+============================================================
+
+OVERVIEW
+--------
+Total Tickets: 100
+Date Range: January 15 - March 25, 2024
+Context: Three-company merger (GreenTech, Summit Corp, Apex Solutions)
+
+TICKETS BY LEGACY COMPANY
+--------------------------
+Summit Corp         :  36 tickets ( 36.0%)
+GreenTech           :  33 tickets ( 33.0%)
+Apex Solutions      :  31 tickets ( 31.0%)
+
+TOP ISSUE CATEGORIES
+------------------------------------------------------------
+Other                    :  23 ( 23.0%) ███████████
+System Access & IT       :  18 ( 18.0%) █████████
+Compensation & Bonuses   :  14 ( 14.0%) ███████
+Benefits & Insurance     :  13 ( 13.0%) ██████
+PTO & Leave              :  12 ( 12.0%) ██████
+Policy Questions         :  11 ( 11.0%) █████
+Career Development       :   5 (  5.0%) ██
+Office/Facilities        :   3 (  3.0%) █
+Equipment                :   1 (  1.0%) 
+
+KEY INSIGHTS
+------------
+1. System Access & IT issues dominate (VPN, passwords, badges)
+2. Benefits confusion is widespread across all legacy companies
+3. Policy clarification requests spike in first 2 months
+4. Compensation structure changes causing significant concern
+5. Equipment and office logistics create operational friction
+
+MERGER INTEGRATION CHALLENGES IDENTIFIED
+-----------------------------------------
+• Multiple legacy systems still in parallel operation
+• Inconsistent policy communication across former companies
+• Benefits enrollment confusion (different plan structures)
+• Organizational structure unclear (reporting lines)
+• Technology stack consolidation incomplete
+• Cultural differences in work arrangements (remote, PTO, dress code)
+
+RECOMMENDATIONS
+---------------
+1. Accelerate single-system migration (priority: payroll, benefits, access)
+2. Publish unified policy handbook with side-by-side comparisons
+3. Establish dedicated merger integration support team
+4. Create FAQ based on top 20 ticket categories
+5. Schedule town halls with Q&A for each legacy company cohort
+6. Implement change management communications campaign

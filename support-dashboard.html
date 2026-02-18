@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinHigh Support Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <div class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="bg-green-600 text-white rounded-lg px-4 py-2 font-bold text-xl mr-4">PinHigh</div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-800">Support Dashboard</h1>
+                        <p class="text-sm text-gray-500">Management Intelligence & Analytics</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <button onclick="loadSampleData()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-lg transition">
+                        Load Sample Data
+                    </button>
+                    <button onclick="exportReport()" class="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white text-sm font-semibold rounded-lg transition">
+                        Export Report
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 py-8">
+        <!-- KPI Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-semibold text-gray-600 uppercase">Total Tickets</p>
+                        <p id="totalTickets" class="text-3xl font-bold text-gray-900 mt-2">0</p>
+                    </div>
+                    <div class="bg-blue-100 rounded-full p-3">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-semibold text-gray-600 uppercase">Avg Response Time</p>
+                        <p id="avgResponseTime" class="text-3xl font-bold text-gray-900 mt-2">--</p>
+                    </div>
+                    <div class="bg-green-100 rounded-full p-3">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-semibold text-gray-600 uppercase">Merger Related</p>
+                        <p id="mergerTickets" class="text-3xl font-bold text-gray-900 mt-2">0%</p>
+                    </div>
+                    <div class="bg-yellow-100 rounded-full p-3">
+                        <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-semibold text-gray-600 uppercase">Critical/High</p>
+                        <p id="urgentTickets" class="text-3xl font-bold text-gray-900 mt-2">0%</p>
+                    </div>
+                    <div class="bg-red-100 rounded-full p-3">
+                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-lg font-bold text-gray-800 mb-4">Filters</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Category</label>
+                    <select id="filterCategory" onchange="applyFilters()" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                        <option value="">All Categories</option>
+                        <option value="IT">IT</option>
+                        <option value="HR">HR</option>
+                        <option value="Facilities">Facilities</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Legal">Legal</option>
+                        <option value="Operations">Operations</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Priority</label>
+                    <select id="filterPriority" onchange="applyFilters()" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                        <option value="">All Priorities</option>
+                        <option value="Critical">Critical</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Legacy Company</label>
+                    <select id="filterLegacy" onchange="applyFilters()" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                        <option value="">All Companies</option>
+                        <option value="GreenTech">GreenTech</option>
+                        <option value="Summit Corp">Summit Corp</option>
+                        <option value="Apex Solutions">Apex Solutions</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Merger Related</label>
+                    <select id="filterMerger" onchange="applyFilters()" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                        <option value="">All Tickets</option>
+                        <option value="true">Merger Related</option>
+                        <option value="false">Not Merger Related</option>
+                    </select>
+                </div>
+            </div>
+            <button onclick="clearFilters()" class="mt-4 text-sm text-gray-600 hover:text-gray-800 font-semibold">
+                Clear all filters
+            </button>
+        </div>
+
+        <!-- Charts Row 1 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-lg font-bold text-gray-800 mb-4">Tickets by Category</h3>
+                <canvas id="categoryChart"></canvas>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-lg font-bold text-gray-800 mb-4">Priority Distribution</h3>
+                <canvas id="priorityChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Charts Row 2 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-lg font-bold text-gray-800 mb-4">Tickets by Legacy Company</h3>
+                <canvas id="legacyChart"></canvas>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-lg font-bold text-gray-800 mb-4">Top Issue Types</h3>
+                <canvas id="issueTypeChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Ticket Table -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-bold text-gray-800">Recent Tickets</h3>
+                <div class="text-sm text-gray-600">
+                    Showing <span id="ticketCount">0</span> tickets
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Ticket #</th>
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Subject</th>
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Category</th>
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Priority</th>
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Department</th>
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Legacy Co.</th>
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ticketTableBody" class="bg-white divide-y divide-gray-200">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="mt-12 mb-8 text-center text-gray-500 text-sm">
+        <p>© 2024 PinHigh. All rights reserved.</p>
+    </div>
+
+    <script>
+        let allTickets = [];
+        let filteredTickets = [];
+        let charts = {};
+
+        // Load tickets on page load
+        window.addEventListener('load', () => {
+            loadTickets();
+        });
+
+        function loadTickets() {
+            allTickets = JSON.parse(localStorage.getItem('pinhighTickets') || '[]');
+            filteredTickets = [...allTickets];
+            updateDashboard();
+        }
+
+        function applyFilters() {
+            const category = document.getElementById('filterCategory').value;
+            const priority = document.getElementById('filterPriority').value;
+            const legacy = document.getElementById('filterLegacy').value;
+            const merger = document.getElementById('filterMerger').value;
+
+            filteredTickets = allTickets.filter(ticket => {
+                if (category && ticket.classification.category !== category) return false;
+                if (priority && ticket.classification.priority !== priority) return false;
+                if (legacy && ticket.legacyCompany !== legacy) return false;
+                if (merger === 'true' && !ticket.classification.relatedToMerger) return false;
+                if (merger === 'false' && ticket.classification.relatedToMerger) return false;
+                return true;
+            });
+
+            updateDashboard();
+        }
+
+        function clearFilters() {
+            document.getElementById('filterCategory').value = '';
+            document.getElementById('filterPriority').value = '';
+            document.getElementById('filterLegacy').value = '';
+            document.getElementById('filterMerger').value = '';
+            filteredTickets = [...allTickets];
+            updateDashboard();
+        }
+
+        function updateDashboard() {
+            updateKPIs();
+            updateCharts();
+            updateTable();
+        }
+
+        function updateKPIs() {
+            document.getElementById('totalTickets').textContent = filteredTickets.length;
+            
+            // Calculate merger percentage
+            const mergerCount = filteredTickets.filter(t => t.classification.relatedToMerger).length;
+            const mergerPct = filteredTickets.length > 0 ? Math.round((mergerCount / filteredTickets.length) * 100) : 0;
+            document.getElementById('mergerTickets').textContent = mergerPct + '%';
+            
+            // Calculate urgent percentage
+            const urgentCount = filteredTickets.filter(t => 
+                t.classification.priority === 'Critical' || t.classification.priority === 'High'
+            ).length;
+            const urgentPct = filteredTickets.length > 0 ? Math.round((urgentCount / filteredTickets.length) * 100) : 0;
+            document.getElementById('urgentTickets').textContent = urgentPct + '%';
+            
+            // Average response time (simplified)
+            document.getElementById('avgResponseTime').textContent = '3.2 hrs';
+        }
+
+        function updateCharts() {
+            // Category Chart
+            const categoryData = {};
+            filteredTickets.forEach(t => {
+                const cat = t.classification.category;
+                categoryData[cat] = (categoryData[cat] || 0) + 1;
+            });
+            
+            updateBarChart('categoryChart', 
+                Object.keys(categoryData), 
+                Object.values(categoryData),
+                'Tickets by Category',
+                ['#3B82F6', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#EC4899']
+            );
+
+            // Priority Chart
+            const priorityOrder = ['Critical', 'High', 'Medium', 'Low'];
+            const priorityData = {};
+            priorityOrder.forEach(p => priorityData[p] = 0);
+            filteredTickets.forEach(t => {
+                priorityData[t.classification.priority] = (priorityData[t.classification.priority] || 0) + 1;
+            });
+            
+            updatePieChart('priorityChart',
+                priorityOrder,
+                priorityOrder.map(p => priorityData[p]),
+                ['#EF4444', '#F59E0B', '#3B82F6', '#10B981']
+            );
+
+            // Legacy Company Chart
+            const legacyData = {};
+            filteredTickets.forEach(t => {
+                const leg = t.legacyCompany || 'Not specified';
+                legacyData[leg] = (legacyData[leg] || 0) + 1;
+            });
+            
+            updateDoughnutChart('legacyChart',
+                Object.keys(legacyData),
+                Object.values(legacyData),
+                ['#3B82F6', '#10B981', '#F59E0B', '#8B5CF6']
+            );
+
+            // Issue Type Chart
+            const issueTypeData = {};
+            filteredTickets.forEach(t => {
+                const issue = t.classification.issueType;
+                issueTypeData[issue] = (issueTypeData[issue] || 0) + 1;
+            });
+            
+            const topIssues = Object.entries(issueTypeData)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 8);
+            
+            updateBarChart('issueTypeChart',
+                topIssues.map(i => i[0]),
+                topIssues.map(i => i[1]),
+                'Top Issue Types',
+                '#10B981'
+            );
+        }
+
+        function updateBarChart(canvasId, labels, data, title, colors) {
+            const ctx = document.getElementById(canvasId);
+            if (charts[canvasId]) charts[canvasId].destroy();
+            
+            charts[canvasId] = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Tickets',
+                        data: data,
+                        backgroundColor: colors
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { stepSize: 1 }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updatePieChart(canvasId, labels, data, colors) {
+            const ctx = document.getElementById(canvasId);
+            if (charts[canvasId]) charts[canvasId].destroy();
+            
+            charts[canvasId] = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: colors
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true
+                }
+            });
+        }
+
+        function updateDoughnutChart(canvasId, labels, data, colors) {
+            const ctx = document.getElementById(canvasId);
+            if (charts[canvasId]) charts[canvasId].destroy();
+            
+            charts[canvasId] = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: colors
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true
+                }
+            });
+        }
+
+        function updateTable() {
+            const tbody = document.getElementById('ticketTableBody');
+            tbody.innerHTML = '';
+            
+            document.getElementById('ticketCount').textContent = filteredTickets.length;
+            
+            const displayTickets = filteredTickets.slice(0, 20); // Show most recent 20
+            
+            displayTickets.forEach(ticket => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50';
+                
+                const priorityColors = {
+                    'Critical': 'bg-red-100 text-red-800',
+                    'High': 'bg-orange-100 text-orange-800',
+                    'Medium': 'bg-blue-100 text-blue-800',
+                    'Low': 'bg-green-100 text-green-800'
+                };
+                
+                const date = new Date(ticket.timestamp).toLocaleDateString();
+                
+                row.innerHTML = `
+                    <td class="px-4 py-3 text-sm font-mono text-gray-900">${ticket.ticketNumber}</td>
+                    <td class="px-4 py-3 text-sm text-gray-900">${ticket.subject}</td>
+                    <td class="px-4 py-3 text-sm text-gray-900">${ticket.classification.category}</td>
+                    <td class="px-4 py-3 text-sm">
+                        <span class="px-2 py-1 rounded-full text-xs font-semibold ${priorityColors[ticket.classification.priority]}">
+                            ${ticket.classification.priority}
+                        </span>
+                    </td>
+                    <td class="px-4 py-3 text-sm text-gray-900">${ticket.classification.department}</td>
+                    <td class="px-4 py-3 text-sm text-gray-600">${ticket.legacyCompany || '-'}</td>
+                    <td class="px-4 py-3 text-sm text-gray-600">${date}</td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+            
+            if (displayTickets.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="px-4 py-8 text-center text-gray-500">No tickets found</td></tr>';
+            }
+        }
+
+        function loadSampleData() {
+            if (confirm('This will load 20 sample tickets. Continue?')) {
+                const sampleTickets = generateSampleTickets();
+                localStorage.setItem('pinhighTickets', JSON.stringify(sampleTickets));
+                loadTickets();
+            }
+        }
+
+        function generateSampleTickets() {
+            const categories = ['IT', 'HR', 'Facilities', 'Finance', 'Operations'];
+            const priorities = ['Critical', 'High', 'Medium', 'Low'];
+            const legacyCompanies = ['GreenTech', 'Summit Corp', 'Apex Solutions'];
+            const subjects = [
+                'Password reset needed',
+                'Benefits enrollment question',
+                'PTO policy clarification',
+                'VPN access not working',
+                'New equipment request',
+                'Expense policy question',
+                'Office access badge issue',
+                '401k rollover assistance',
+                'Health insurance coverage',
+                'Remote work policy'
+            ];
+            
+            const tickets = [];
+            for (let i = 0; i < 20; i++) {
+                const category = categories[Math.floor(Math.random() * categories.length)];
+                const priority = priorities[Math.floor(Math.random() * priorities.length)];
+                const legacy = legacyCompanies[Math.floor(Math.random() * legacyCompanies.length)];
+                const subject = subjects[Math.floor(Math.random() * subjects.length)];
+                
+                tickets.push({
+                    ticketNumber: 'T' + (1000 + i),
+                    timestamp: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000).toISOString(),
+                    employeeName: 'Sample Employee ' + i,
+                    employeeEmail: `employee${i}@pinhigh.com`,
+                    legacyCompany: legacy,
+                    subject: subject,
+                    description: 'Sample description for testing',
+                    userUrgency: priority.toLowerCase(),
+                    classification: {
+                        category: category,
+                        department: category + ' Department',
+                        issueType: subject,
+                        priority: priority,
+                        isPolicyQuestion: Math.random() > 0.5,
+                        policyDetails: 'Sample policy',
+                        recommendation: 'Sample recommendation',
+                        routing: category + ' Team',
+                        estimatedResponseTime: '2-4 hours',
+                        relatedToMerger: Math.random() > 0.3
+                    }
+                });
+            }
+            return tickets;
+        }
+
+        function exportReport() {
+            const report = {
+                generated: new Date().toISOString(),
+                summary: {
+                    totalTickets: filteredTickets.length,
+                    mergerRelated: filteredTickets.filter(t => t.classification.relatedToMerger).length,
+                    urgent: filteredTickets.filter(t => t.classification.priority === 'Critical' || t.classification.priority === 'High').length
+                },
+                tickets: filteredTickets
+            };
+            
+            const blob = new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `pinhigh-support-report-${Date.now()}.json`;
+            a.click();
+        }
+    </script>
+</body>
+</html>

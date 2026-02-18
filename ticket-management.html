@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinHigh Ticket Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <div class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="bg-green-600 text-white rounded-lg px-4 py-2 font-bold text-xl mr-4">PinHigh</div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-800">Ticket Management</h1>
+                        <p class="text-sm text-gray-500">Support Staff Console</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="text-right">
+                        <p class="text-sm text-gray-600">Logged in as: <span class="font-semibold" id="staffName">Support Agent</span></p>
+                        <p class="text-xs text-gray-500" id="staffRole">IT Department</p>
+                    </div>
+                    <button onclick="showStaffLogin()" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-800 font-semibold">
+                        Change
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 py-8">
+        <!-- Info Banner -->
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 flex items-start">
+            <svg class="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+            </svg>
+            <div class="flex-1">
+                <p class="text-sm text-blue-800">
+                    <span class="font-semibold">Department-Based Access:</span> You can only see and respond to tickets assigned to your department (<span class="font-semibold" id="infoDepartment">IT Department</span>). 
+                    Tickets are automatically routed based on their category. To view tickets from other departments, change your department in the top-right corner.
+                </p>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Ticket Queue (Left Panel) -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-lg shadow-lg p-6 sticky top-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-bold text-gray-800">My Queue</h2>
+                        <button onclick="loadTickets()" class="text-sm text-green-600 hover:text-green-700 font-semibold">
+                            ↻ Refresh
+                        </button>
+                    </div>
+                    
+                    <!-- Department Badge -->
+                    <div class="mb-4 bg-green-50 border border-green-200 rounded-lg p-3">
+                        <p class="text-xs text-green-800 font-semibold mb-1">VIEWING TICKETS FOR</p>
+                        <p class="text-sm font-bold text-green-900" id="queueDepartment">IT Department</p>
+                        <p class="text-xs text-green-700 mt-1">🔒 Department-filtered view</p>
+                    </div>
+
+                    <!-- Status Filter Tabs -->
+                    <div class="flex gap-2 mb-4 border-b border-gray-200">
+                        <button onclick="filterByStatus('all')" id="tab-all" class="tab-btn px-4 py-2 text-sm font-semibold border-b-2 border-green-600 text-green-600">
+                            All (<span id="count-all">0</span>)
+                        </button>
+                        <button onclick="filterByStatus('open')" id="tab-open" class="tab-btn px-4 py-2 text-sm font-semibold border-b-2 border-transparent text-gray-600 hover:text-gray-800">
+                            Open (<span id="count-open">0</span>)
+                        </button>
+                        <button onclick="filterByStatus('closed')" id="tab-closed" class="tab-btn px-4 py-2 text-sm font-semibold border-b-2 border-transparent text-gray-600 hover:text-gray-800">
+                            Closed (<span id="count-closed">0</span>)
+                        </button>
+                    </div>
+
+                    <!-- Priority Filter -->
+                    <div class="mb-4">
+                        <select id="priorityFilter" onchange="applyQueueFilters()" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg">
+                            <option value="">All Priorities</option>
+                            <option value="Critical">🚨 Critical</option>
+                            <option value="High">⚠️ High</option>
+                            <option value="Medium">→ Medium</option>
+                            <option value="Low">✓ Low</option>
+                        </select>
+                    </div>
+
+                    <!-- Ticket List -->
+                    <div id="ticketQueue" class="space-y-2 max-h-[600px] overflow-y-auto">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <div id="emptyQueue" class="hidden text-center py-8 text-gray-500">
+                        <p class="text-sm mb-2">No tickets assigned to <span class="font-semibold" id="emptyQueueDept"></span></p>
+                        <p class="text-xs mb-3">Tickets are automatically routed based on category</p>
+                        <button onclick="generateSampleTicket()" class="mt-3 text-sm text-green-600 hover:text-green-700 font-semibold">
+                            + Generate Test Ticket
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ticket Detail (Right Panel) -->
+            <div class="lg:col-span-2">
+                <div id="noTicketSelected" class="bg-white rounded-lg shadow-lg p-12 text-center">
+                    <svg class="mx-auto h-16 w-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <p class="text-gray-600 font-semibold">Select a ticket to view details</p>
+                    <p class="text-sm text-gray-500 mt-2">Choose a ticket from the queue on the left</p>
+                </div>
+
+                <div id="ticketDetail" class="hidden">
+                    <!-- Ticket Header -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <h2 class="text-2xl font-bold text-gray-800" id="detailSubject"></h2>
+                                    <span id="detailStatus" class="px-3 py-1 rounded-full text-xs font-semibold"></span>
+                                </div>
+                                <p class="text-sm text-gray-600">
+                                    Ticket <span class="font-mono font-semibold" id="detailTicketNumber"></span> • 
+                                    Submitted <span id="detailDate"></span>
+                                </p>
+                            </div>
+                            <div id="detailPriority" class="px-4 py-2 rounded-lg text-sm font-semibold"></div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4 pt-4 border-t border-gray-200">
+                            <div>
+                                <p class="text-xs text-gray-500 mb-1">REQUESTER</p>
+                                <p class="font-semibold text-gray-800" id="detailEmployee"></p>
+                                <p class="text-sm text-gray-600" id="detailEmail"></p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-1">LEGACY COMPANY</p>
+                                <p class="font-semibold text-gray-800" id="detailLegacy"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Classification Info -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4">Classification</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="bg-blue-50 rounded-lg p-3">
+                                <p class="text-xs text-blue-800 font-semibold mb-1">CATEGORY</p>
+                                <p class="text-sm font-bold text-blue-900" id="detailCategory"></p>
+                            </div>
+                            <div class="bg-purple-50 rounded-lg p-3">
+                                <p class="text-xs text-purple-800 font-semibold mb-1">DEPARTMENT</p>
+                                <p class="text-sm font-bold text-purple-900" id="detailDepartment"></p>
+                            </div>
+                            <div class="bg-green-50 rounded-lg p-3">
+                                <p class="text-xs text-green-800 font-semibold mb-1">ISSUE TYPE</p>
+                                <p class="text-sm font-bold text-green-900" id="detailIssueType"></p>
+                            </div>
+                        </div>
+                        <div id="policyInfo" class="hidden mt-4 bg-yellow-50 rounded-lg p-3">
+                            <p class="text-xs text-yellow-800 font-semibold mb-1">POLICY QUESTION</p>
+                            <p class="text-sm text-yellow-900" id="detailPolicyDetails"></p>
+                        </div>
+                        <div class="mt-4 bg-gray-50 rounded-lg p-3">
+                            <p class="text-xs text-gray-700 font-semibold mb-1">AI RECOMMENDATION</p>
+                            <p class="text-sm text-gray-800" id="detailRecommendation"></p>
+                        </div>
+                    </div>
+
+                    <!-- Ticket Description -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4">Description</h3>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <p class="text-gray-800 whitespace-pre-wrap" id="detailDescription"></p>
+                        </div>
+                    </div>
+
+                    <!-- Response History -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4">Response History</h3>
+                        <div id="responseHistory" class="space-y-4">
+                            <!-- Populated by JS -->
+                        </div>
+                        <div id="noResponses" class="text-center py-4 text-gray-500 text-sm">
+                            No responses yet
+                        </div>
+                    </div>
+
+                    <!-- Add Response -->
+                    <div id="responseSection" class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4">Add Response</h3>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Response Type</label>
+                            <div class="flex gap-3">
+                                <button onclick="setResponseType('internal')" id="type-internal" 
+                                        class="response-type-btn flex-1 px-4 py-2 border-2 border-gray-300 rounded-lg text-sm font-semibold hover:border-green-600 transition">
+                                    📝 Internal Note
+                                </button>
+                                <button onclick="setResponseType('customer')" id="type-customer" 
+                                        class="response-type-btn flex-1 px-4 py-2 border-2 border-green-600 bg-green-50 rounded-lg text-sm font-semibold transition">
+                                    💬 Reply to Customer
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Your Response</label>
+                            <textarea id="responseText" rows="6" placeholder="Type your response here..."
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"></textarea>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="flex items-center">
+                                <input type="checkbox" id="generateAI" class="w-4 h-4 text-green-600 rounded focus:ring-green-500">
+                                <span class="ml-2 text-sm text-gray-700">Use AI to help draft response</span>
+                            </label>
+                        </div>
+
+                        <div class="flex gap-3">
+                            <button onclick="addResponse()" 
+                                    class="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+                                <span id="addResponseBtn">Post Response</span>
+                            </button>
+                            <button onclick="addResponseAndClose()" 
+                                    class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+                                Post & Close Ticket
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4">Quick Actions</h3>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button onclick="updatePriority()" class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-semibold hover:border-green-600 hover:bg-green-50 transition">
+                                Change Priority
+                            </button>
+                            <button onclick="reassignTicket()" class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-semibold hover:border-green-600 hover:bg-green-50 transition">
+                                Reassign Ticket
+                            </button>
+                            <button onclick="escalateTicket()" class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-semibold hover:border-green-600 hover:bg-green-50 transition">
+                                Escalate to Manager
+                            </button>
+                            <button onclick="mergeTickets()" class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-semibold hover:border-green-600 hover:bg-green-50 transition">
+                                Merge with Another
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Staff Login Modal -->
+    <div id="staffLoginModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full mx-4">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Staff Login</h3>
+            <div class="mb-4">
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
+                <input type="text" id="inputStaffName" placeholder="e.g., John Smith" 
+                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="mb-6">
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Department</label>
+                <select id="inputStaffDept" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                    <option value="IT Department">IT Department</option>
+                    <option value="HR Department">HR Department</option>
+                    <option value="Facilities">Facilities</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Operations">Operations</option>
+                </select>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="saveStaffInfo()" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg">
+                    Save
+                </button>
+                <button onclick="hideStaffLogin()" class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-lg">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="mt-12 mb-8 text-center text-gray-500 text-sm">
+        <p>© 2024 PinHigh. All rights reserved.</p>
+    </div>
+
+    <script>
+        let allTickets = [];
+        let filteredTickets = [];
+        let currentTicket = null;
+        let currentStatusFilter = 'all';
+        let responseType = 'customer';
+        let staffInfo = { name: 'Support Agent', department: 'IT Department' };
+
+        window.addEventListener('load', () => {
+            loadStaffInfo();
+            loadTickets();
+        });
+
+        function loadStaffInfo() {
+            const saved = localStorage.getItem('staffInfo');
+            if (saved) {
+                staffInfo = JSON.parse(saved);
+                document.getElementById('staffName').textContent = staffInfo.name;
+                document.getElementById('staffRole').textContent = staffInfo.department;
+                updateDepartmentBadge();
+            }
+        }
+        
+        function updateDepartmentBadge() {
+            const badge = document.getElementById('queueDepartment');
+            const infoBanner = document.getElementById('infoDepartment');
+            if (badge) {
+                badge.textContent = staffInfo.department;
+            }
+            if (infoBanner) {
+                infoBanner.textContent = staffInfo.department;
+            }
+        }
+
+        function showStaffLogin() {
+            document.getElementById('inputStaffName').value = staffInfo.name;
+            document.getElementById('inputStaffDept').value = staffInfo.department;
+            document.getElementById('staffLoginModal').classList.remove('hidden');
+        }
+
+        function hideStaffLogin() {
+            document.getElementById('staffLoginModal').classList.add('hidden');
+        }
+
+        function saveStaffInfo() {
+            const previousDept = staffInfo.department;
+            staffInfo.name = document.getElementById('inputStaffName').value;
+            staffInfo.department = document.getElementById('inputStaffDept').value;
+            localStorage.setItem('staffInfo', JSON.stringify(staffInfo));
+            document.getElementById('staffName').textContent = staffInfo.name;
+            document.getElementById('staffRole').textContent = staffInfo.department;
+            updateDepartmentBadge();
+            hideStaffLogin();
+            
+            // If department changed, reload tickets to show only new department's tickets
+            if (previousDept !== staffInfo.department) {
+                currentTicket = null;
+                document.getElementById('noTicketSelected').classList.remove('hidden');
+                document.getElementById('ticketDetail').classList.add('hidden');
+                loadTickets();
+            }
+        }
+
+        function loadTickets() {
+            const allTicketsRaw = JSON.parse(localStorage.getItem('pinhighTickets') || '[]');
+            
+            // Add status and responses if not present, and map department to assignedTo
+            const processedTickets = allTicketsRaw.map(ticket => ({
+                ...ticket,
+                status: ticket.status || 'open',
+                responses: ticket.responses || [],
+                assignedTo: ticket.assignedTo || mapCategoryToDepartment(ticket.classification.category)
+            }));
+            
+            // Filter tickets by staff department - only show tickets assigned to their department
+            allTickets = processedTickets.filter(ticket => {
+                return ticket.assignedTo === staffInfo.department;
+            });
+            
+            applyQueueFilters();
+            updateQueueCounts();
+        }
+        
+        function mapCategoryToDepartment(category) {
+            const mapping = {
+                'IT': 'IT Department',
+                'HR': 'HR Department',
+                'Facilities': 'Facilities',
+                'Finance': 'Finance',
+                'Legal': 'Legal',
+                'Operations': 'Operations'
+            };
+            return mapping[category] || 'IT Department';
+        }
+
+        function updateQueueCounts() {
+            const openCount = allTickets.filter(t => t.status === 'open').length;
+            const closedCount = allTickets.filter(t => t.status === 'closed').length;
+            
+            document.getElementById('count-all').textContent = allTickets.length;
+            document.getElementById('count-open').textContent = openCount;
+            document.getElementById('count-closed').textContent = closedCount;
+        }
+
+        function filterByStatus(status) {
+            currentStatusFilter = status;
+            
+            // Update tab styling
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('border-green-600', 'text-green-600');
+                btn.classList.add('border-transparent', 'text-gray-600');
+            });
+            document.getElementById(`tab-${status}`).classList.remove('border-transparent', 'text-gray-600');
+            document.getElementById(`tab-${status}`).classList.add('border-green-600', 'text-green-600');
+            
+            applyQueueFilters();
+        }
+
+        function applyQueueFilters() {
+            const priorityFilter = document.getElementById('priorityFilter').value;
+            
+            filteredTickets = allTickets.filter(ticket => {
+                if (currentStatusFilter !== 'all' && ticket.status !== currentStatusFilter) return false;
+                if (priorityFilter && ticket.classification.priority !== priorityFilter) return false;
+                return true;
+            });
+            
+            renderQueue();
+        }
+
+        function renderQueue() {
+            const queue = document.getElementById('ticketQueue');
+            const emptyState = document.getElementById('emptyQueue');
+            
+            if (filteredTickets.length === 0) {
+                queue.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                document.getElementById('emptyQueueDept').textContent = staffInfo.department;
+                return;
+            }
+            
+            queue.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+            
+            queue.innerHTML = filteredTickets.map(ticket => {
+                const priorityIcons = {
+                    'Critical': '🚨',
+                    'High': '⚠️',
+                    'Medium': '→',
+                    'Low': '✓'
+                };
+                
+                const statusColors = {
+                    'open': 'bg-blue-50 border-blue-200',
+                    'closed': 'bg-gray-50 border-gray-200'
+                };
+                
+                const date = new Date(ticket.timestamp).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                
+                return `
+                    <div onclick="selectTicket('${ticket.ticketNumber}')" 
+                         class="p-4 border-2 ${statusColors[ticket.status]} rounded-lg cursor-pointer hover:shadow-md transition ${currentTicket?.ticketNumber === ticket.ticketNumber ? 'border-green-600 bg-green-50' : ''}">
+                        <div class="flex items-start justify-between mb-2">
+                            <p class="font-mono text-xs font-bold text-gray-600">${ticket.ticketNumber}</p>
+                            <span class="text-sm">${priorityIcons[ticket.classification.priority]}</span>
+                        </div>
+                        <p class="font-semibold text-sm text-gray-900 mb-1 line-clamp-2">${ticket.subject}</p>
+                        <p class="text-xs text-gray-600">${ticket.classification.category} • ${date}</p>
+                        ${ticket.responses.length > 0 ? `<p class="text-xs text-green-600 mt-1">${ticket.responses.length} response(s)</p>` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function selectTicket(ticketNumber) {
+            currentTicket = allTickets.find(t => t.ticketNumber === ticketNumber);
+            if (!currentTicket) return;
+            
+            document.getElementById('noTicketSelected').classList.add('hidden');
+            document.getElementById('ticketDetail').classList.remove('hidden');
+            
+            // Populate header
+            document.getElementById('detailSubject').textContent = currentTicket.subject;
+            document.getElementById('detailTicketNumber').textContent = currentTicket.ticketNumber;
+            
+            const date = new Date(currentTicket.timestamp).toLocaleDateString('en-US', { 
+                month: 'long', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit'
+            });
+            document.getElementById('detailDate').textContent = date;
+            
+            // Status badge
+            const statusBadge = document.getElementById('detailStatus');
+            if (currentTicket.status === 'open') {
+                statusBadge.className = 'px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800';
+                statusBadge.textContent = 'Open';
+            } else {
+                statusBadge.className = 'px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-800';
+                statusBadge.textContent = 'Closed';
+            }
+            
+            // Priority badge
+            const priorityBadge = document.getElementById('detailPriority');
+            const priorityColors = {
+                'Critical': 'bg-red-100 text-red-800',
+                'High': 'bg-orange-100 text-orange-800',
+                'Medium': 'bg-blue-100 text-blue-800',
+                'Low': 'bg-green-100 text-green-800'
+            };
+            priorityBadge.className = `px-4 py-2 rounded-lg text-sm font-semibold ${priorityColors[currentTicket.classification.priority]}`;
+            priorityBadge.textContent = currentTicket.classification.priority + ' Priority';
+            
+            // Employee info
+            document.getElementById('detailEmployee').textContent = currentTicket.employeeName;
+            document.getElementById('detailEmail').textContent = currentTicket.employeeEmail;
+            document.getElementById('detailLegacy').textContent = currentTicket.legacyCompany || 'Not specified';
+            
+            // Classification
+            document.getElementById('detailCategory').textContent = currentTicket.classification.category;
+            document.getElementById('detailDepartment').textContent = currentTicket.classification.department;
+            document.getElementById('detailIssueType').textContent = currentTicket.classification.issueType;
+            document.getElementById('detailRecommendation').textContent = currentTicket.classification.recommendation;
+            
+            // Policy info
+            if (currentTicket.classification.isPolicyQuestion) {
+                document.getElementById('policyInfo').classList.remove('hidden');
+                document.getElementById('detailPolicyDetails').textContent = currentTicket.classification.policyDetails;
+            } else {
+                document.getElementById('policyInfo').classList.add('hidden');
+            }
+            
+            // Description
+            document.getElementById('detailDescription').textContent = currentTicket.description;
+            
+            // Responses
+            renderResponses();
+            
+            // Hide response section if closed
+            if (currentTicket.status === 'closed') {
+                document.getElementById('responseSection').classList.add('hidden');
+            } else {
+                document.getElementById('responseSection').classList.remove('hidden');
+            }
+            
+            // Update queue to highlight selected
+            renderQueue();
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderResponses() {
+            const container = document.getElementById('responseHistory');
+            const noResponses = document.getElementById('noResponses');
+            
+            if (!currentTicket.responses || currentTicket.responses.length === 0) {
+                container.classList.add('hidden');
+                noResponses.classList.remove('hidden');
+                return;
+            }
+            
+            container.classList.remove('hidden');
+            noResponses.classList.add('hidden');
+            
+            container.innerHTML = currentTicket.responses.map((response, index) => {
+                const isInternal = response.type === 'internal';
+                const date = new Date(response.timestamp).toLocaleDateString('en-US', {
+                    month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+                });
+                
+                return `
+                    <div class="border-l-4 ${isInternal ? 'border-gray-400 bg-gray-50' : 'border-green-600 bg-green-50'} rounded-r-lg p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-semibold text-gray-800">${response.author}</span>
+                                <span class="px-2 py-0.5 rounded text-xs font-semibold ${isInternal ? 'bg-gray-200 text-gray-700' : 'bg-green-200 text-green-800'}">
+                                    ${isInternal ? '📝 Internal' : '💬 Customer'}
+                                </span>
+                            </div>
+                            <span class="text-xs text-gray-600">${date}</span>
+                        </div>
+                        <p class="text-gray-800 whitespace-pre-wrap">${response.text}</p>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function setResponseType(type) {
+            responseType = type;
+            
+            document.querySelectorAll('.response-type-btn').forEach(btn => {
+                btn.classList.remove('border-green-600', 'bg-green-50');
+                btn.classList.add('border-gray-300');
+            });
+            
+            const selectedBtn = document.getElementById(`type-${type}`);
+            selectedBtn.classList.remove('border-gray-300');
+            selectedBtn.classList.add('border-green-600', 'bg-green-50');
+        }
+
+        async function addResponse(andClose = false) {
+            const responseText = document.getElementById('responseText').value.trim();
+            const useAI = document.getElementById('generateAI').checked;
+            
+            if (!responseText && !useAI) {
+                alert('Please enter a response');
+                return;
+            }
+            
+            const button = document.getElementById('addResponseBtn');
+            button.textContent = useAI ? 'Generating with AI...' : 'Posting...';
+            
+            let finalResponse = responseText;
+            
+            if (useAI && responseText) {
+                try {
+                    const aiResponse = await fetch('https://api.anthropic.com/v1/messages', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            model: 'claude-sonnet-4-20250514',
+                            max_tokens: 500,
+                            messages: [{
+                                role: 'user',
+                                content: `You are a helpful customer support agent at PinHigh helping with a post-merger ticket.
+                                
+Ticket Subject: ${currentTicket.subject}
+Ticket Description: ${currentTicket.description}
+Issue Type: ${currentTicket.classification.issueType}
+AI Recommendation: ${currentTicket.classification.recommendation}
+
+The support agent has started this draft response:
+"${responseText}"
+
+Improve and complete this response to be professional, empathetic, and helpful. Keep it concise (2-3 paragraphs max). Return ONLY the improved response text with no preamble or explanation.`
+                            }]
+                        })
+                    });
+                    
+                    const data = await aiResponse.json();
+                    finalResponse = data.content[0].text.trim();
+                } catch (error) {
+                    console.error('AI Error:', error);
+                    // Fallback to original text
+                }
+            }
+            
+            // Add response
+            if (!currentTicket.responses) currentTicket.responses = [];
+            
+            currentTicket.responses.push({
+                timestamp: new Date().toISOString(),
+                author: staffInfo.name,
+                text: finalResponse,
+                type: responseType
+            });
+            
+            if (andClose) {
+                currentTicket.status = 'closed';
+                currentTicket.closedBy = staffInfo.name;
+                currentTicket.closedAt = new Date().toISOString();
+            }
+            
+            // Save to localStorage
+            const ticketIndex = allTickets.findIndex(t => t.ticketNumber === currentTicket.ticketNumber);
+            allTickets[ticketIndex] = currentTicket;
+            localStorage.setItem('pinhighTickets', JSON.stringify(allTickets));
+            
+            // Reset form
+            document.getElementById('responseText').value = '';
+            document.getElementById('generateAI').checked = false;
+            button.textContent = 'Post Response';
+            
+            // Refresh display
+            renderResponses();
+            updateQueueCounts();
+            
+            if (andClose) {
+                applyQueueFilters();
+                selectTicket(currentTicket.ticketNumber);
+            }
+        }
+
+        function addResponseAndClose() {
+            if (confirm('Are you sure you want to close this ticket?')) {
+                addResponse(true);
+            }
+        }
+
+        function updatePriority() {
+            const newPriority = prompt('Enter new priority (Critical, High, Medium, Low):');
+            if (newPriority && ['Critical', 'High', 'Medium', 'Low'].includes(newPriority)) {
+                currentTicket.classification.priority = newPriority;
+                const ticketIndex = allTickets.findIndex(t => t.ticketNumber === currentTicket.ticketNumber);
+                allTickets[ticketIndex] = currentTicket;
+                localStorage.setItem('pinhighTickets', JSON.stringify(allTickets));
+                selectTicket(currentTicket.ticketNumber);
+            }
+        }
+
+        function reassignTicket() {
+            const newDept = prompt('Reassign to department:');
+            if (newDept) {
+                alert(`Ticket reassigned to ${newDept}`);
+            }
+        }
+
+        function escalateTicket() {
+            alert('Ticket escalated to manager. They will be notified.');
+        }
+
+        function mergeTickets() {
+            alert('Select another ticket to merge with (feature coming soon)');
+        }
+
+        function generateSampleTicket() {
+            // Map staff department back to category
+            const deptToCategory = {
+                'IT Department': 'IT',
+                'HR Department': 'HR',
+                'Facilities': 'Facilities',
+                'Finance': 'Finance',
+                'Legal': 'Legal',
+                'Operations': 'Operations'
+            };
+            
+            const category = deptToCategory[staffInfo.department] || 'IT';
+            
+            const subjectsByCategory = {
+                'IT': 'VPN connection not working',
+                'HR': 'Benefits enrollment question',
+                'Facilities': 'Conference room AC broken',
+                'Finance': 'Expense report rejected',
+                'Legal': 'Contract review needed',
+                'Operations': 'Supply order urgent'
+            };
+            
+            const descriptionsByCategory = {
+                'IT': 'I cannot connect to the VPN from home. Getting error code 800. Need access urgently for client work.',
+                'HR': 'I am confused about the new health insurance options after the merger. My old plan had dental included.',
+                'Facilities': 'The air conditioning in conference room B is not working. We have a client meeting scheduled there this afternoon.',
+                'Finance': 'My expense report was rejected but I followed the policy. Can someone help clarify what changed?',
+                'Legal': 'Need urgent review of vendor contract. Client is waiting for signature.',
+                'Operations': 'Critical supply shortage affecting production. Need expedited order approval.'
+            };
+            
+            const sample = {
+                ticketNumber: 'T' + Math.floor(Math.random() * 9000 + 1000),
+                timestamp: new Date().toISOString(),
+                employeeName: 'Sample User',
+                employeeEmail: 'sample@pinhigh.com',
+                legacyCompany: 'GreenTech',
+                subject: subjectsByCategory[category],
+                description: descriptionsByCategory[category],
+                userUrgency: 'high',
+                status: 'open',
+                responses: [],
+                assignedTo: staffInfo.department,
+                classification: {
+                    category: category,
+                    department: staffInfo.department,
+                    issueType: subjectsByCategory[category],
+                    priority: 'High',
+                    isPolicyQuestion: category === 'HR',
+                    policyDetails: category === 'HR' ? 'Benefits policy' : '',
+                    recommendation: `Route to ${staffInfo.department} for immediate attention`,
+                    routing: staffInfo.department,
+                    estimatedResponseTime: '2 hours',
+                    relatedToMerger: true
+                }
+            };
+            
+            // Get all tickets, add new one, save back
+            const allTicketsRaw = JSON.parse(localStorage.getItem('pinhighTickets') || '[]');
+            allTicketsRaw.push(sample);
+            localStorage.setItem('pinhighTickets', JSON.stringify(allTicketsRaw));
+            
+            loadTickets();
+        }
+    </script>
+</body>
+</html>
