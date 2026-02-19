@@ -3,397 +3,381 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PinHigh Support System - Project Portfolio</title>
+    <title>Jonathan Ryan Atkins - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .gradient-bg {
-            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
         }
-        .card-hover {
+        .project-card {
             transition: all 0.3s ease;
         }
-        .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.2);
         }
-        .tech-badge {
-            animation: fadeIn 0.5s ease-in;
+        .skill-badge {
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hero-text {
+            animation: fadeIn 1s ease-in;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Hero Section -->
-    <div class="gradient-bg text-white">
-        <div class="max-w-6xl mx-auto px-6 py-16">
-            <div class="flex items-center justify-between mb-8">
-                <div class="bg-white text-green-600 rounded-lg px-6 py-3 font-bold text-2xl">PinHigh</div>
-                <a href="/cdn-cgi/l/email-protection#05666a6b7164667145607d64687569602b666a68" class="px-6 py-2 bg-white text-green-600 rounded-lg font-semibold hover:bg-gray-100 transition">
-                    Contact Me
-                </a>
-            </div>
-            
-            <h1 class="text-5xl font-bold mb-4">AI-Powered Helpdesk System</h1>
-            <p class="text-xl text-green-50 mb-8 max-w-3xl">
-                A comprehensive ticket management platform designed for post-merger integration, 
-                featuring intelligent classification, department-based access control, and real-time analytics.
-            </p>
-            
-            <div class="flex flex-wrap gap-3 mb-8">
-                <span class="tech-badge px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">AI Classification</span>
-                <span class="tech-badge px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">Real-time Analytics</span>
-                <span class="tech-badge px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">Role-Based Access</span>
-                <span class="tech-badge px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">Responsive Design</span>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                    <div class="text-3xl font-bold mb-2">3</div>
-                    <div class="text-green-50">Integrated Applications</div>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                    <div class="text-3xl font-bold mb-2">100%</div>
-                    <div class="text-green-50">AI-Powered Classification</div>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                    <div class="text-3xl font-bold mb-2">6</div>
-                    <div class="text-green-50">Department Integrations</div>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-8">
+                    <a href="#projects" class="text-gray-600 hover:text-gray-900 font-medium transition">Projects</a>
+                    <a href="#about" class="text-gray-600 hover:text-gray-900 font-medium transition">About</a>
+                    <a href="#skills" class="text-gray-600 hover:text-gray-900 font-medium transition">Skills</a>
+                    <a href="#contact" class="text-gray-600 hover:text-gray-900 font-medium transition">Contact</a>
                 </div>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <!-- Project Overview -->
-    <div class="max-w-6xl mx-auto px-6 py-16">
-        <div class="mb-16">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4">Project Overview</h2>
-            <p class="text-lg text-gray-600 mb-6">
-                Built for a post-merger scenario where three companies (GreenTech, Summit Corp, and Apex Solutions) 
-                consolidated into PinHigh, this system addresses the critical challenge of managing employee support 
-                requests across legacy systems and policies.
-            </p>
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
-                <p class="text-blue-900">
-                    <span class="font-semibold">Business Context:</span> During organizational mergers, helpdesk teams 
-                    face overwhelming ticket volumes related to policy changes, system migrations, and benefit transitions. 
-                    This solution automates classification, routing, and provides department-specific access control.
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="hero-text">
+                    <h1 class="text-6xl font-bold mb-6">Jonathan Atkins</h1>
+                    <p class="text-2xl text-blue-100 mb-4">AI Business Solutions Specialist</p>
+                    <p class="text-xl text-blue-50 mb-8">
+                        Building intelligent systems that solve real business problems. Passionate about AI, automation, and creating exceptional user experiences through direct and rapid prototyping.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="px-8 py-4 bg-white text-blue-600 rounded-lg font-bold hover:bg-gray-100 transition inline-flex items-center">
+                            View Projects
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden lg:block">
+                    <svg class="w-full h-auto" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Design Thinking Process Illustration -->
+                        <!-- Empathize Circle -->
+                        <circle cx="250" cy="100" r="60" fill="#3B82F6" opacity="0.2"/>
+                        <text x="250" y="95" text-anchor="middle" fill="white" font-size="14" font-weight="bold">EMPATHIZE</text>
+                        <text x="250" y="115" text-anchor="middle" fill="white" font-size="10">Understand Users</text>
+                        
+                        <!-- Define Circle -->
+                        <circle cx="400" cy="200" r="60" fill="#10B981" opacity="0.2"/>
+                        <text x="400" y="195" text-anchor="middle" fill="white" font-size="14" font-weight="bold">DEFINE</text>
+                        <text x="400" y="215" text-anchor="middle" fill="white" font-size="10">Frame Problems</text>
+                        
+                        <!-- Ideate Circle -->
+                        <circle cx="400" cy="350" r="60" fill="#F59E0B" opacity="0.2"/>
+                        <text x="400" y="345" text-anchor="middle" fill="white" font-size="14" font-weight="bold">IDEATE</text>
+                        <text x="400" y="365" text-anchor="middle" fill="white" font-size="10">Generate Ideas</text>
+                        
+                        <!-- Prototype Circle -->
+                        <circle cx="250" cy="450" r="60" fill="#8B5CF6" opacity="0.2"/>
+                        <text x="250" y="445" text-anchor="middle" fill="white" font-size="14" font-weight="bold">PROTOTYPE</text>
+                        <text x="250" y="465" text-anchor="middle" fill="white" font-size="10">Build Solutions</text>
+                        
+                        <!-- Test Circle -->
+                        <circle cx="100" cy="350" r="60" fill="#EF4444" opacity="0.2"/>
+                        <text x="100" y="345" text-anchor="middle" fill="white" font-size="14" font-weight="bold">TEST</text>
+                        <text x="100" y="365" text-anchor="middle" fill="white" font-size="10">Validate & Learn</text>
+                        
+                        <!-- Connecting Lines -->
+                        <line x1="280" y1="140" x2="360" y2="170" stroke="white" stroke-width="2" opacity="0.3"/>
+                        <line x1="400" y1="260" x2="400" y2="290" stroke="white" stroke-width="2" opacity="0.3"/>
+                        <line x1="360" y1="380" x2="280" y2="410" stroke="white" stroke-width="2" opacity="0.3"/>
+                        <line x1="190" y1="430" x2="140" y2="390" stroke="white" stroke-width="2" opacity="0.3"/>
+                        <line x1="120" y1="290" x2="220" y2="140" stroke="white" stroke-width="2" opacity="0.3" stroke-dasharray="5,5"/>
+                        
+                        <!-- Center Icon - Lightbulb for Innovation -->
+                        <circle cx="250" cy="275" r="40" fill="white" opacity="0.1"/>
+                        <path d="M250 245 L250 265 M235 260 L265 260" stroke="white" stroke-width="3" fill="none" opacity="0.5"/>
+                        <circle cx="250" cy="280" r="15" fill="none" stroke="white" stroke-width="2" opacity="0.5"/>
+                        <path d="M245 295 L255 295 M245 300 L255 300" stroke="white" stroke-width="2" opacity="0.5"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Featured Projects</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    A selection of my recent work showcasing AI integration, user-centric design and rapid prototyping.
                 </p>
             </div>
-        </div>
 
-        <!-- Applications Grid -->
-        <h2 class="text-3xl font-bold text-gray-800 mb-8">System Components</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <!-- Ticket Submission Portal -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
-                <div class="bg-gradient-to-r from-green-500 to-green-600 px-6 py-4">
-                    <h3 class="text-xl font-bold text-white">1. Ticket Submission Portal</h3>
-                    <p class="text-green-50 text-sm">Employee-Facing Interface</p>
-                </div>
-                <div class="p-6">
-                    <p class="text-gray-700 mb-4">
-                        User-friendly portal where employees submit support requests with automatic AI classification and routing.
-                    </p>
-                    
-                    <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm text-gray-700">Real-time AI classification (category, priority, department)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm text-gray-700">Visual urgency selector with business context</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm text-gray-700">Legacy company tracking for merger context</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm text-gray-700">Instant confirmation with routing details</span>
-                        </li>
-                    </ul>
-                    
-                    <a href="ticket-submission-portal.html"
-                       class="block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition">
-                        Launch Application →
-                    </a>
-                </div>
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: PinHigh -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-green-500">
+                    <div class="bg-gradient-to-br from-green-500 to-green-600 h-48 flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <div class="text-6xl font-bold mb-2">PinHigh</div>
+                            <div class="text-green-100 text-sm">AI-Powered Helpdesk</div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">
+                            AI-powered helpdesk platform with automated classification, 
+                            role-based access control, user & admin portals, and real-time analytics dashboards.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Claude AI</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full">JavaScript</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-semibold rounded-full">Chart.js</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-semibold rounded-full">Tailwind CSS</span>
+                        </div>
 
-            <!-- Ticket Management Console -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
-                <div class="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-4">
-                    <h3 class="text-xl font-bold text-white">2. Ticket Management Console</h3>
-                    <p class="text-blue-50 text-sm">Support Staff Interface</p>
+                        <div class="flex gap-3">
+                            <a href="/PinHigh-Portfolio/" 
+                               class="flex-1 text-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition">
+                                View Project
+                            </a>
+                            <a href="https://github.com/jonathanryanatkins/PinHigh-Portfolio" target="_blank"
+                               class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold rounded-lg transition">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="p-6">
-                    <p class="text-gray-700 mb-4">
-                        Comprehensive ticket handling interface with department-based access control and AI-assisted responses.
-                    </p>
-                    
-                    <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm text-gray-700">Department-based role access (RBAC)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm text-gray-700">AI-assisted response drafting</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm text-gray-700">Internal notes vs. customer-facing responses</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm text-gray-700">Priority escalation and reassignment</span>
-                        </li>
-                    </ul>
-                    
-                    <a href="ticket-management.html"
-                       class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition">
-                        Launch Application →
-                    </a>
-                </div>
-            </div>
 
-            <!-- Analytics Dashboard -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
-                <div class="bg-gradient-to-r from-purple-500 to-purple-600 px-6 py-4">
-                    <h3 class="text-xl font-bold text-white">3. Analytics Dashboard</h3>
-                    <p class="text-purple-50 text-sm">Management Intelligence</p>
-                </div>
-                <div class="p-6">
-                    <p class="text-gray-700 mb-4">
-                        Real-time MI reporting with interactive charts, filters, and export capabilities for data-driven decisions.
-                    </p>
-                    
-                    <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-purple-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm text-gray-700">Real-time KPI cards (volume, response time, urgency)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-purple-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm text-gray-700">Interactive Chart.js visualizations</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-purple-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm text-gray-700">Multi-dimensional filtering and drill-down</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-purple-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm text-gray-700">Export reports to JSON for further analysis</span>
-                        </li>
-                    </ul>
-                    
-                    <a href="support-dashboard.html"
-                       class="block w-full text-center bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition">
-                        Launch Application →
-                    </a>
-                </div>
-            </div>
+                <!-- Project 2: Placeholder -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-blue-500">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 h-48 flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <div class="text-5xl font-bold mb-2">Project 2</div>
+                            <div class="text-blue-100 text-sm">Coming Soon</div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Your Next Project</h3>
+                        <p class="text-gray-600 mb-4">
+                            This is a placeholder for your next amazing project. Update this card with your 
+                            project details, technologies, and links.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full">React</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Node.js</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-semibold rounded-full">PostgreSQL</span>
+                        </div>
 
-            <!-- Sample Dataset -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
-                <div class="bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-4">
-                    <h3 class="text-xl font-bold text-white">4. Sample Dataset & Analysis</h3>
-                    <p class="text-orange-50 text-sm">Post-Merger Scenarios</p>
+                        <div class="flex gap-3">
+                            <button class="flex-1 text-center px-4 py-2 bg-gray-300 text-gray-500 font-semibold rounded-lg cursor-not-allowed">
+                                Coming Soon
+                            </button>
+                            <button class="px-4 py-2 bg-gray-200 text-gray-400 font-semibold rounded-lg cursor-not-allowed">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="p-6">
-                    <p class="text-gray-700 mb-4">
-                        Comprehensive dataset of 100 realistic post-merger helpdesk tickets with detailed analysis report.
-                    </p>
-                    
-                    <h4 class="font-semibold text-gray-800 mb-2">Includes:</h4>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-orange-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm text-gray-700">100 tickets spanning 3 legacy companies</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-orange-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm text-gray-700">Benefits, PTO, system access, policy questions</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-orange-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm text-gray-700">Statistical analysis and insights report</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-orange-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm text-gray-700">CSV format for easy import/analysis</span>
-                        </li>
-                    </ul>
-                    
-                    <div class="grid grid-cols-2 gap-3">
-                        <a href="pinhigh-tickets-dataset.csv" download 
-                           class="text-center bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-4 rounded-lg transition text-sm">
-                            Download CSV
-                        </a>
-                        <a href="ticket-analysis-report.txt" download 
-                           class="text-center bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-4 rounded-lg transition text-sm">
-                            View Report
-                        </a>
+
+                <!-- Project 3: Placeholder -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-purple-500">
+                    <div class="bg-gradient-to-br from-purple-500 to-purple-600 h-48 flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <div class="text-5xl font-bold mb-2">Project 3</div>
+                            <div class="text-purple-100 text-sm">Coming Soon</div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Another Great Project</h3>
+                        <p class="text-gray-600 mb-4">
+                            This is another placeholder ready for your next project. Each project card can 
+                            showcase different skills and technologies.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-semibold rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-800 text-xs font-semibold rounded-full">Django</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-xs font-semibold rounded-full">Redis</span>
+                        </div>
+
+                        <div class="flex gap-3">
+                            <button class="flex-1 text-center px-4 py-2 bg-gray-300 text-gray-500 font-semibold rounded-lg cursor-not-allowed">
+                                Coming Soon
+                            </button>
+                            <button class="px-4 py-2 bg-gray-200 text-gray-400 font-semibold rounded-lg cursor-not-allowed">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Technical Stack -->
-        <div class="bg-white rounded-xl shadow-lg p-8 mb-16">
-            <h2 class="text-2xl font-bold text-gray-800 mb-6">Technical Stack</h2>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">About Me</h2>
+                    <p class="text-lg text-gray-600 mb-4">
+                        I'm an AI-native Strategic Leader, specialising in applied AI - building intelligent systems 
+                        that solve real-world business challenges.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-4">
+                        With a focus on user-centric design and modern technologies, I create solutions that are 
+                        not only functional but also intuitive and scalable.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Currently helping clients to leverage AI and automation in innovative ways.
+                    </p>
+                    <a href="/cdn-cgi/l/email-protection#345752505741467451445b4c41477451455750475b" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition inline-block">
+                        Download Resume
+                    </a>
+                </div>
+                <div class="bg-white rounded-xl shadow-xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Quick Stats</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600 font-medium">Projects Completed</span>
+                            <span class="text-3xl font-bold text-blue-600">1+</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600 font-medium">Technologies Mastered</span>
+                            <span class="text-3xl font-bold text-green-600">10+</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600 font-medium">Lines of Code</span>
+                            <span class="text-3xl font-bold text-purple-600">5000+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Skills & Technologies</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    A diverse toolkit for building modern, intelligent applications.
+                </p>
+            </div>
+
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="text-center">
-                    <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
-                        <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
-                        </svg>
-                    </div>
-                    <div class="font-semibold text-gray-800">Claude AI</div>
-                    <div class="text-xs text-gray-600">Sonnet 4</div>
+                <div class="skill-badge bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 text-center hover:shadow-lg transition" style="animation-delay: 0.1s">
+                    <div class="text-4xl mb-3">🤖</div>
+                    <h3 class="font-bold text-gray-800 mb-2">AI Integration</h3>
+                    <p class="text-sm text-gray-600">Claude AI, GPT, Prompt Engineering</p>
                 </div>
-                <div class="text-center">
-                    <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
-                        <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <div class="font-semibold text-gray-800">HTML/CSS/JS</div>
-                    <div class="text-xs text-gray-600">Frontend</div>
+                <div class="skill-badge bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 text-center hover:shadow-lg transition" style="animation-delay: 0.2s">
+                    <div class="text-4xl mb-3">⚛️</div>
+                    <h3 class="font-bold text-gray-800 mb-2">Frontend</h3>
+                    <p class="text-sm text-gray-600">React, JavaScript, Tailwind CSS</p>
                 </div>
-                <div class="text-center">
-                    <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
-                        <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
-                        </svg>
-                    </div>
-                    <div class="font-semibold text-gray-800">Chart.js</div>
-                    <div class="text-xs text-gray-600">Visualization</div>
+                <div class="skill-badge bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 text-center hover:shadow-lg transition" style="animation-delay: 0.3s">
+                    <div class="text-4xl mb-3">🔧</div>
+                    <h3 class="font-bold text-gray-800 mb-2">Backend</h3>
+                    <p class="text-sm text-gray-600">Node.js, Python, APIs</p>
                 </div>
-                <div class="text-center">
-                    <div class="bg-indigo-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
-                        <svg class="w-8 h-8 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <div class="font-semibold text-gray-800">Tailwind CSS</div>
-                    <div class="text-xs text-gray-600">Styling</div>
+                <div class="skill-badge bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 text-center hover:shadow-lg transition" style="animation-delay: 0.4s">
+                    <div class="text-4xl mb-3">💾</div>
+                    <h3 class="font-bold text-gray-800 mb-2">Databases</h3>
+                    <p class="text-sm text-gray-600">PostgreSQL, MongoDB, Redis</p>
                 </div>
-            </div>
-        </div>
-
-        <!-- Use Cases -->
-        <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 mb-16">
-            <h2 class="text-2xl font-bold text-gray-800 mb-6">Business Impact & Use Cases</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white rounded-lg p-6">
-                    <div class="text-3xl mb-3">🎯</div>
-                    <h3 class="font-bold text-gray-800 mb-2">Post-Merger Integration</h3>
-                    <p class="text-sm text-gray-600">
-                        Handles complex scenarios where employees from different legacy companies have questions about 
-                        new unified policies, benefits, and systems.
-                    </p>
+                <div class="skill-badge bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-6 text-center hover:shadow-lg transition" style="animation-delay: 0.5s">
+                    <div class="text-4xl mb-3">☁️</div>
+                    <h3 class="font-bold text-gray-800 mb-2">Cloud & DevOps</h3>
+                    <p class="text-sm text-gray-600">AWS, Docker, CI/CD</p>
                 </div>
-                <div class="bg-white rounded-lg p-6">
-                    <div class="text-3xl mb-3">⚡</div>
-                    <h3 class="font-bold text-gray-800 mb-2">Automated Triage</h3>
-                    <p class="text-sm text-gray-600">
-                        AI classification reduces manual sorting time by 80%, automatically routing tickets to the 
-                        correct department based on content analysis.
-                    </p>
+                <div class="skill-badge bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-6 text-center hover:shadow-lg transition" style="animation-delay: 0.6s">
+                    <div class="text-4xl mb-3">📊</div>
+                    <h3 class="font-bold text-gray-800 mb-2">Data Viz</h3>
+                    <p class="text-sm text-gray-600">Chart.js, D3.js, Plotly</p>
                 </div>
-                <div class="bg-white rounded-lg p-6">
-                    <div class="text-3xl mb-3">🔒</div>
-                    <h3 class="font-bold text-gray-800 mb-2">Data Segmentation</h3>
-                    <p class="text-sm text-gray-600">
-                        Department-based access control ensures IT staff only see IT tickets, maintaining data privacy 
-                        and reducing cognitive load.
-                    </p>
+                <div class="skill-badge bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-6 text-center hover:shadow-lg transition" style="animation-delay: 0.7s">
+                    <div class="text-4xl mb-3">🎨</div>
+                    <h3 class="font-bold text-gray-800 mb-2">UI/UX Design</h3>
+                    <p class="text-sm text-gray-600">Figma, User Research, Prototyping</p>
                 </div>
-                <div class="bg-white rounded-lg p-6">
-                    <div class="text-3xl mb-3">📊</div>
-                    <h3 class="font-bold text-gray-800 mb-2">Data-Driven Decisions</h3>
-                    <p class="text-sm text-gray-600">
-                        Real-time analytics identify merger integration pain points, allowing leadership to proactively 
-                        address systemic issues.
-                    </p>
+                <div class="skill-badge bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 text-center hover:shadow-lg transition" style="animation-delay: 0.8s">
+                    <div class="text-4xl mb-3">🚀</div>
+                    <h3 class="font-bold text-gray-800 mb-2">Agile & PM</h3>
+                    <p class="text-sm text-gray-600">Scrum, Jira, Git/GitHub</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Contact CTA -->
-        <div class="bg-gradient-to-r from-green-600 to-green-700 rounded-xl p-12 text-center text-white">
-            <h2 class="text-3xl font-bold mb-4">Interested in My Work?</h2>
-            <p class="text-green-50 mb-8 max-w-2xl mx-auto">
-                I'm passionate about building intelligent systems that solve real business problems. 
-                Let's discuss how I can contribute to your team.
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-gray-800 mb-6">Let's Work Together</h2>
+            <p class="text-xl text-gray-600 mb-12">
+                Whether you have a question or just want to say hi:
             </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="/cdn-cgi/l/email-protection#7900160c0b571c14181015391c01181409151c571a1614" class="px-8 py-3 bg-white text-green-600 rounded-lg font-semibold hover:bg-gray-100 transition">
+            
+            <div class="flex flex-wrap justify-center gap-6 mb-12">
+                <a href="/cdn-cgi/l/email-protection#8de7e2e3ecf9e5ece3fff4ece3ecf9e6e4e3fecdeae0ece4e1a3eee2e0" class="flex items-center gap-3 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
                     Email Me
                 </a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank"
-                   class="px-8 py-3 bg-green-800 text-white rounded-lg font-semibold hover:bg-green-900 transition">
-                    LinkedIn Profile
+                <a href="https://linkedin.com/in/jonathanryanatkins" target="_blank"
+                   class="flex items-center gap-3 px-8 py-4 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-lg transition">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    LinkedIn
                 </a>
-                <a href="https://github.com/yourprofile" target="_blank"
-                   class="px-8 py-3 bg-green-800 text-white rounded-lg font-semibold hover:bg-green-900 transition">
+                <a href="https://github.com/jonathanryanatkins" target="_blank"
+                   class="flex items-center gap-3 px-8 py-4 bg-gray-800 hover:bg-gray-900 text-white font-semibold rounded-lg transition">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                    </svg>
                     GitHub
                 </a>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
-    <div class="bg-gray-800 text-gray-400 py-8 mt-16">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <p class="mb-2">© 2024 PinHigh Support System Portfolio</p>
-            <p class="text-sm">Built with Claude AI • Designed for post-merger integration scenarios</p>
+    <footer class="bg-gray-800 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center">
+                <p class="text-lg mb-2">© 2024 Jonathan Ryan Atkins</p>
+                <p class="text-sm">Built with passion • Hosted on GitHub Pages</p>
+            </div>
         </div>
-    </div>
+    </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Add smooth scrolling
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -404,12 +388,19 @@
             });
         });
 
-        // Animate badges on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-  
+        // Add active class to nav links on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                const navLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+
+                if (navLink && scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLink.classList.add('text-blue-600');
+                    navLink.classList.remove('text-gray-600');
+                } else if (navLink) {
+                    navLink.classList.remove('text-blue-600
